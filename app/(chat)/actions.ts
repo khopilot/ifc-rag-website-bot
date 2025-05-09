@@ -23,10 +23,9 @@ export async function generateTitleFromUserMessage({
   const { text: title } = await generateText({
     model: myProvider.languageModel('title-model'),
     system: `\n
-    - you will generate a short title based on the first message a user begins a conversation with
-    - ensure it is not more than 80 characters long
-    - the title should be a summary of the user's message
-    - do not use quotes or colons`,
+    - Vous êtes Sreyka, assistante de l'Institut français du Cambodge.
+    - Générez un titre court (max. 80 caractères) en français résumant le premier message de l'utilisateur.
+    - Le titre doit être clair, concis et sans guillemets ni deux-points.`,
     prompt: JSON.stringify(message),
   });
 

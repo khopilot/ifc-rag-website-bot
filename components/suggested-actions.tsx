@@ -19,24 +19,28 @@ function PureSuggestedActions({
 }: SuggestedActionsProps) {
   const suggestedActions = [
     {
-      title: 'What are the advantages',
-      label: 'of using Next.js?',
-      action: 'What are the advantages of using Next.js?',
+      title: 'Quels cours de français',
+      label: "sont disponibles à l'IFC ?",
+      action:
+        "Quels cours de français sont disponibles à l'Institut français du Cambodge ?",
     },
     {
-      title: 'Write code to',
-      label: `demonstrate djikstra's algorithm`,
-      action: `Write code to demonstrate djikstra's algorithm`,
+      title: 'Quels événements culturels',
+      label: 'cette semaine ?',
+      action:
+        "Quels événements culturels l'Institut français du Cambodge organise-t-il cette semaine à Phnom Penh ?",
     },
     {
-      title: 'Help me write an essay',
-      label: `about silicon valley`,
-      action: `Help me write an essay about silicon valley`,
+      title: "Horaires d'ouverture",
+      label: 'de la médiathèque ?',
+      action:
+        "Quels sont les horaires d'ouverture de la médiathèque de l'Institut français du Cambodge ?",
     },
     {
-      title: 'What is the weather',
-      label: 'in San Francisco?',
-      action: 'What is the weather in San Francisco?',
+      title: 'Comment réserver',
+      label: 'ma place au cinéma ?',
+      action:
+        "Comment puis-je réserver une place pour une projection de film au cinéma de l'Institut français du Cambodge ?",
     },
   ];
 

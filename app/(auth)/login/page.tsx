@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useActionState, useEffect, useState } from 'react';
 import { toast } from '@/components/toast';
@@ -50,27 +51,58 @@ export default function Page() {
   };
 
   return (
-    <div className="flex h-dvh w-screen items-start pt-12 md:pt-0 md:items-center justify-center bg-background">
-      <div className="w-full max-w-md overflow-hidden rounded-2xl flex flex-col gap-12">
-        <div className="flex flex-col items-center justify-center gap-2 px-4 text-center sm:px-16">
-          <h3 className="text-xl font-semibold dark:text-zinc-50">Sign In</h3>
-          <p className="text-sm text-gray-500 dark:text-zinc-400">
-            Use your email and password to sign in
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900">
+      {/* Gradient background only (removed random image to prevent hydration mismatch) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 -z-10" />
+
+      <div className="w-full max-w-5xl md:flex rounded-xl shadow-2xl overflow-hidden bg-white/70 dark:bg-zinc-900/70 backdrop-blur-lg">
+        {/* Auth section */}
+        <div className="w-full md:w-1/2 flex flex-col gap-10 p-8 sm:p-12">
+          <div className="flex flex-col items-center justify-center gap-3 text-center">
+            <Image
+              src="/images/logo-ifc.png"
+              alt="Logo Institut français du Cambodge"
+              width={64}
+              height={64}
+              priority
+              className="mb-2"
+            />
+            <h3 className="text-2xl font-semibold text-blue-800 dark:text-zinc-100">Connexion</h3>
+            <p className="text-sm text-gray-600 dark:text-zinc-400 max-w-sm">
+              Veuillez saisir votre e-mail et votre mot de passe pour accéder à votre espace.
+            </p>
+          </div>
+          <AuthForm action={handleSubmit} defaultEmail={email}>
+            <SubmitButton isSuccessful={isSuccessful}>Se connecter</SubmitButton>
+            <p className="text-center text-sm text-gray-600 mt-4 dark:text-zinc-400">
+              Pas encore de compte ?{' '}
+              <Link
+                href="/register"
+                className="font-semibold text-blue-800 hover:underline dark:text-blue-300"
+              >
+                Inscrivez-vous gratuitement
+              </Link>
+            </p>
+          </AuthForm>
+          <p className="text-center text-xs text-gray-500 mt-2 dark:text-zinc-500">
+            Sreyka&nbsp;– IFC&nbsp;AI Concierge&nbsp;· Powered by Angkor&nbsp;Intelligence
           </p>
         </div>
-        <AuthForm action={handleSubmit} defaultEmail={email}>
-          <SubmitButton isSuccessful={isSuccessful}>Sign in</SubmitButton>
-          <p className="text-center text-sm text-gray-600 mt-4 dark:text-zinc-400">
-            {"Don't have an account? "}
-            <Link
-              href="/register"
-              className="font-semibold text-gray-800 hover:underline dark:text-zinc-200"
-            >
-              Sign up
-            </Link>
-            {' for free.'}
-          </p>
-        </AuthForm>
+
+        {/* Media section */}
+        <div className="hidden md:block md:w-1/2 relative bg-zinc-800/80">
+          <Image src="/images/photo-1531538512164-e6c51ea63d20.jpeg" fill priority alt="IFC" className="object-cover" />
+          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute bottom-4 left-4 right-4 flex gap-3">
+            {[
+              '/images/photo-1531538512164-e6c51ea63d20.jpeg',
+              '/images/mouth of the seine, monet.jpg',
+              '/images/DELF-icon_600x450a.jpg',
+            ].map((src) => (
+              <Image key={src} src={src} alt="thumb" width={80} height={60} className="object-cover rounded-md border" />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

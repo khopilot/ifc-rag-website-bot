@@ -11,7 +11,7 @@ export const textDocumentHandler = createDocumentHandler<'text'>({
     const { fullStream } = streamText({
       model: myProvider.languageModel('artifact-model'),
       system:
-        'Write about the given topic. Markdown is supported. Use headings wherever appropriate.',
+        "Rédigez un texte sur le sujet indiqué (en français par défaut). Utilisez le Markdown et des titres quand c'est pertinent.",
       experimental_transform: smoothStream({ chunking: 'word' }),
       prompt: title,
     });

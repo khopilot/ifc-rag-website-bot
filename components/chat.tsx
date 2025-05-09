@@ -19,6 +19,7 @@ import type { Session } from 'next-auth';
 import { useSearchParams } from 'next/navigation';
 import { useChatVisibility } from '@/hooks/use-chat-visibility';
 import { useAutoResume } from '@/hooks/use-auto-resume';
+import Image from 'next/image';
 
 export function Chat({
   id,
@@ -114,7 +115,16 @@ export function Chat({
 
   return (
     <>
-      <div className="flex flex-col min-w-0 h-dvh bg-background">
+      <div className="relative flex flex-col min-w-0 h-dvh bg-background">
+        {/* Decorative background logo */}
+        <Image
+          src="/images/logo-ifc.png"
+          alt="Logo IFC"
+          width={300}
+          height={300}
+          className="pointer-events-none select-none opacity-20 absolute bottom-10 right-10 hidden md:block"
+        />
+
         <ChatHeader
           chatId={id}
           selectedModelId={initialChatModel}

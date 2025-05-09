@@ -7,9 +7,42 @@ import './globals.css';
 import { SessionProvider } from 'next-auth/react';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://chat.vercel.ai'),
-  title: 'Next.js Chatbot Template',
-  description: 'Next.js chatbot template using the AI SDK.',
+  metadataBase: new URL('https://sreyka.ifc-cambodge.com'),
+  title: 'Sreyka – IFC AI Concierge',
+  description:
+    "Sreyka est l'assistante virtuelle officielle de l'Institut français du Cambodge. Posez vos questions sur les cours de français, la médiathèque, le cinéma ou les événements culturels !",
+  applicationName: 'Sreyka AI',
+  authors: { name: 'Institut français du Cambodge' },
+  openGraph: {
+    title: 'Sreyka – IFC AI Concierge',
+    description:
+      "Sreyka est l'assistante virtuelle officielle de l'Institut français du Cambodge.",
+    url: 'https://sreyka.ifc-cambodge.com',
+    siteName: 'Sreyka AI',
+    images: [
+      {
+        url: '/images/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Logo Institut français du Cambodge',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sreyka – IFC AI Concierge',
+    description:
+      "Sreyka est l'assistante virtuelle officielle de l'Institut français du Cambodge.",
+    images: ['/images/opengraph-image.png'],
+  },
+  icons: {
+    icon: '/images/logo-ifc.png',
+    shortcut: '/images/logo-ifc.png',
+    apple: '/images/logo-ifc.png',
+  },
+  manifest: '/manifest.json',
 };
 
 export const viewport = {
